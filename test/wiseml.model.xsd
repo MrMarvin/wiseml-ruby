@@ -1,0 +1,89 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://wiseml.model" xmlns:ns1="http://wiseml.model/setup" elementFormDefault="qualified" targetNamespace="http://wiseml.model">
+  <xs:import namespace="http://wiseml.model/setup" schemaLocation="setup.xsd"/>
+  <xs:element type="tns:wiseml" name="wiseml"/>
+  <xs:complexType name="wiseml">
+    <xs:sequence>
+      <xs:element name="setup" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="node" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="id" minOccurs="0"/>
+                  <xs:element type="ns1:capability" name="capability" minOccurs="0" maxOccurs="unbounded"/>
+                  <xs:element name="position" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence/>
+                      <xs:attribute type="xs:float" use="required" name="x"/>
+                      <xs:attribute type="xs:float" use="required" name="y"/>
+                      <xs:attribute type="xs:float" use="required" name="z"/>
+                      <xs:attribute type="xs:int" use="required" name="phi"/>
+                      <xs:attribute type="xs:int" use="required" name="theta"/>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element type="xs:string" name="nodeType" minOccurs="0"/>
+                  <xs:element type="xs:string" name="description" minOccurs="0"/>
+                  <xs:element type="xs:string" name="programDetails" minOccurs="0"/>
+                </xs:sequence>
+                <xs:attribute type="xs:int" use="required" name="gateway"/>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="origin" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence/>
+                <xs:attribute type="xs:float" use="required" name="x"/>
+                <xs:attribute type="xs:float" use="required" name="y"/>
+                <xs:attribute type="xs:float" use="required" name="z"/>
+                <xs:attribute type="xs:int" use="required" name="phi"/>
+                <xs:attribute type="xs:int" use="required" name="theta"/>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="timeinfo" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="unit" minOccurs="0"/>
+                </xs:sequence>
+                <xs:attribute type="xs:dateTime" name="start"/>
+                <xs:attribute type="xs:dateTime" name="end"/>
+                <xs:attribute type="xs:int" use="required" name="duration"/>
+              </xs:complexType>
+            </xs:element>
+            <xs:element type="xs:string" name="interpolation" minOccurs="0"/>
+            <xs:element type="xs:string" name="description" minOccurs="0"/>
+            <xs:element name="link" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="source" minOccurs="0"/>
+                  <xs:element type="xs:string" name="target" minOccurs="0"/>
+                  <xs:element type="ns1:capability" name="capability" minOccurs="0" maxOccurs="unbounded"/>
+                  <xs:element name="rssi" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element type="xs:string" name="datatype" minOccurs="0"/>
+                        <xs:element type="xs:string" name="unit" minOccurs="0"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+                <xs:attribute type="xs:boolean" use="required" name="encrypted"/>
+                <xs:attribute type="xs:boolean" use="required" name="virtual"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="scenario" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence/>
+          <xs:attribute type="xs:int" use="required" name="id"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="trace" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence/>
+          <xs:attribute type="xs:int" use="required" name="id"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
