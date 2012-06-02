@@ -6,7 +6,7 @@ module WiseML
       # properties of a setup. Setters and getters are implicitly defined
       # trough the accesors
 
-      xml_accessor :id
+      xml_accessor :id, :as => Integer
       xml_accessor :origin, :as => Origin
       xml_accessor :timeinfo, :as => TimeInfo
       xml_accessor :interpolation

@@ -6,7 +6,7 @@ module WiseML
       # properties of a Trace. Setters and getters are implicitly defined
       # trough the accesors
 
-      xml_accessor :id
+      xml_accessor :id, :as => Integer
       xml_accessor :timestamp, :as => [Scenario::Timestamp]
       xml_accessor :children
 

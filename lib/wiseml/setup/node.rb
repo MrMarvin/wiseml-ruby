@@ -6,7 +6,7 @@ module WiseML
       # properties of a node. Setters and getters are implicitly defined
       # trough the accesors
 
-      xml_accessor :id, :as => Integer
+      xml_accessor :id, :from => "@id"
       xml_accessor :capabilities, :as => [Capability]
       xml_accessor :position, :as => Position
       xml_accessor :nodeType

@@ -7,8 +7,8 @@ module WiseML
 
     include ROXML
 
-    xml_accessor :version
-    xml_accessor :xmlns
+    xml_accessor :version, :from => "@version"
+    xml_accessor :xmlns, :from => "@xmlns"
     xml_accessor :setup, :as => Setup::Setup
     xml_accessor :scenario, :as => Scenario::Scenario
     xml_accessor :trace, :as => Trace::Trace

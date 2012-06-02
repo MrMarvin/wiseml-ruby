@@ -7,7 +7,7 @@ module WiseML
       # trough the accesors
 
       xml_accessor :timestamp
-      xml_accessor :id
+      xml_accessor :id, :from => "@id"
       xml_accessor :data
 
     end
