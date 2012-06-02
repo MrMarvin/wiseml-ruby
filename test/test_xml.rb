@@ -22,16 +22,16 @@ class TestXml < Test::Unit::TestCase
   end
 
   def test_write_to_xml
-    # xsd file seems outdated and is itself invalid...
-    xsd = Nokogiri::XML::Schema(File.read("wiseml.xsd"))
 
-    doc = Nokogiri::XML::Document.new
-    doc.root = @wisexml.to_xml
-    doc.root.set_attribute("xmlns","http://wisebed.eu/ns/wiseml/1.0")
-    File.open("out.xml","w") do |f| f.write doc end
-    
-    puts xsd.validate(doc)
-    
+    # writes the xml document to a file
+    @wisexml.write_to(File.open("out.xml","w"))
+
+    # and read both schema and document to validate
+    xsd = Nokogiri::XML::Schema(File.read("wiseml.xsd"))
+    doc = Nokogiri::XML(File.read("out.xml"))
+
+    # empty as in not a single error -> validates
+    assert(xsd.validate(doc).empty?)
   end
 
 end
