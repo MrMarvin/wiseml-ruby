@@ -7,6 +7,8 @@ module WiseML
 
     include ROXML
 
+    @xmlns = "http://wisebed.eu/ns/wiseml/1.0"
+
     xml_accessor :version, :from => "@version"
     xml_accessor :xmlns, :from => "@xmlns"
     xml_accessor :setup, :as => Setup::Setup

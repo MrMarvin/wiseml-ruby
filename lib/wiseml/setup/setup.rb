@@ -10,8 +10,8 @@ module WiseML
       xml_accessor :origin, :as => Origin
       xml_accessor :timeinfo, :as => TimeInfo
       xml_accessor :interpolation
-      xml_accessor :description
       xml_accessor :coordinateType
+      xml_accessor :description      
       xml_accessor :defaults, :as => Defaults
       xml_accessor :nodes, :as => [Node]
       xml_accessor :link, :as => [Link]

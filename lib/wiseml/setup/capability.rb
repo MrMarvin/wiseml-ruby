@@ -9,7 +9,7 @@ module WiseML
       xml_accessor :name
       xml_accessor :datatype
       xml_accessor :unit
-      xml_accessor :defaultValue
+      xml_accessor :default
       xml_accessor :nodes, :as => [Node]
       xml_accessor :links, :as => [Link]
       xml_accessor :description

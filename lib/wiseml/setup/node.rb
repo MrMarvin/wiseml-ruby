@@ -7,11 +7,11 @@ module WiseML
       # trough the accesors
 
       xml_accessor :id, :from => "@id"
-      xml_accessor :capabilities, :as => [Capability]
       xml_accessor :position, :as => Position
+      xml_accessor :gateway
       xml_accessor :nodeType
       xml_accessor :description
-      xml_accessor :gateway
+      xml_accessor :capabilities, :as => [Capability]
       xml_accessor :programDetails
       xml_accessor :data, :as => [Data]
       xml_accessor :message, :as => Trace::Message
