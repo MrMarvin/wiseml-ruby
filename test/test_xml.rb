@@ -1,6 +1,6 @@
 require "test/unit"
 
-require File.dirname(__FILE__) + '/../lib/wise_ml.rb'
+require File.dirname(__FILE__) + '/../lib/wiseml.rb'
 
 class TestXml < Test::Unit::TestCase
 
@@ -23,11 +23,15 @@ class TestXml < Test::Unit::TestCase
 
   def test_write_to_xml
     # xsd file seems outdated and is itself invalid...
-    #xsd = Nokogiri::XML::Schema("wiseml.model.xsd")
+    xsd = Nokogiri::XML::Schema(File.read("wiseml.xsd"))
 
     doc = Nokogiri::XML::Document.new
     doc.root = @wisexml.to_xml
-
+    doc.root.set_attribute("xmlns","http://wisebed.eu/ns/wiseml/1.0")
+    File.open("out.xml","w") do |f| f.write doc end
+    
+    puts xsd.validate(doc)
+    
   end
 
 end
